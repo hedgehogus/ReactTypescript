@@ -1,12 +1,18 @@
-import { ChangeEvent } from "react";
+import { ChangeEvent, DragEventHandler } from "react";
 
 const EventComponent: React.FC = () => {
 
-    const onChange = (event: ChangeEvent) => {
+    const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         console.log(event);
     }
+
+    const onDragStart = (event: React.DragEvent<HTMLDivElement>) => {
+        console.log(event);
+    }
+
     return <div>
         <input onChange={onChange}/>
+        <div draggable onDragStart={onDragStart}> drag me</div>
     </div>
 }
 
